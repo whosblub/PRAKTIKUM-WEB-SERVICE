@@ -1,0 +1,3 @@
+# Refleksi
+
+Order-service tetap bisa menampilkan pesanan saat product-service mati, sehingga riwayat pesanan tidak ikut hilang ketika bagian produk gagal; pada uji langkah 06, GET /order-service/orders tetap mengembalikan 200, sedangkan monolit akan mati seluruhnya. Jika stok sudah dikurangi lewat reserve tetapi pembuatan pesanan gagal sesudahnya, stok akan hilang tanpa pesanan yang sesuai dan kedua data menjadi tidak konsisten. Harga yang dibayar dibanding monolit adalah kompleksitas tambahan berupa dua proses, gateway, dan panggilan jaringan yang harus ditangani timeout dan error-nya. Konsistensi data juga tidak lagi dijamin otomatis seperti pada satu array di satu proses. Sebagai gantinya, tiap bagian bisa diubah, dijalankan, dan diuji secara terpisah.

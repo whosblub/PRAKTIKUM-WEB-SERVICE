@@ -1,0 +1,11 @@
+=== Uji 1: product-service mati, POST order ===
+{"error":"product-service tidak tersedia, coba lagi nanti"}
+HTTP 503
+=== Uji 2: product-service mati, GET order ===
+[{"id":1,"productId":1,"productName":"Keyboard Mekanik","qty":2,"total":900000,"createdAt":"2026-10-28T10:44:58.969Z"}]
+HTTP 200
+=== Uji 3: product-service nyala lagi, POST order ===
+{"id":2,"productId":1,"productName":"Keyboard Mekanik","qty":1,"total":450000,"createdAt":"2026-10-28T10:45:11.418Z"}
+HTTP 201
+stok sekarang:
+{"id":1,"name":"Keyboard Mekanik","price":450000,"stock":9}
