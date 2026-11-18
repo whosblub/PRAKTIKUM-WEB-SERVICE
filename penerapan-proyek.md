@@ -38,3 +38,19 @@ Contoh isi pesan:
 Properti pesan: `messageId = "sale-7"`, `persistent = true`, `contentType = application/json`.
 
 Alasan cocok asinkron: struk dan rekap tidak perlu selesai sebelum pembeli mendapat balasan, sehingga transaksi tetap sukses walau notification-service sedang mati. Pesan ditahan antrean dan diproses setelah consumer pulih. Consumer baru (misalnya report-service) bisa ditambah tanpa mengubah sale-service.
+
+---
+
+## Lab 12: Pengujian Otomatis dan Observability
+
+Diterapkan pada Toko Kue (proyek individu). Kode: `cake-service/` (:4000) dan `sale-service/` (:4001); test: `tests/toko-kue.test.js`, dijalankan dengan `npm run test:kue`.
+
+| Service | `/health` | Jalur sukses | Jalur error | Efek samping |
+|---|---|---|---|---|
+| cake-service | `GET /health` (200, `status: ok`) | `GET /cakes` memuat daftar kue berbentuk benar | reserve kue tak dikenal 404, `qty` tidak valid 400, stok kurang 409 | `POST /cakes/:id/reserve` mengurangi stok sebesar `qty` |
+| sale-service | `GET /health` (200, `status: ok`) | `POST /sales` 201 dengan `unitPrice` dan `total` benar | input salah 400, kue tak dikenal 404, stok kurang 409 | transaksi muncul di `GET /sales` dan stok kue berkurang |
+
+- `monitor.js` memantau gateway, product-service, order-service, cake-service, dan sale-service.
+- `ci.yml` menyalakan kelima service, menunggu `/health`, lalu menjalankan `npm test` dan `npm run test:kue`.
+- `X-Request-Id` dari sale-service diteruskan ke cake-service sehingga satu penjualan terlacak di kedua log.
+- Catatan: kode sale-service pada tahap ini belum menerbitkan event `sale.created` ke RabbitMQ (lab 10 opsional); desainnya tetap seperti dijelaskan di atas.

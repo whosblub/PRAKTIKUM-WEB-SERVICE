@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+require('./observability')(app, 'product-service');   // lab 12: /health, /metrics, log JSON
 
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');

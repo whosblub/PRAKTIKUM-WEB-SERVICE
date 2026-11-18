@@ -1,0 +1,13 @@
+X-Request-Id pada respons POST /order-service/orders: 22c4210c-092e-40b3-bfb7-ee26b8baaf96
+--- log gateway
+{"time":"2026-11-18T06:37:02.093Z","service":"gateway","id":"22c4210c-092e-40b3-bfb7-ee26b8baaf96","method":"POST","path":"/order-service/orders","status":201,"ms":13}
+--- log order
+{"time":"2026-11-18T06:37:02.094Z","service":"order-service","id":"22c4210c-092e-40b3-bfb7-ee26b8baaf96","method":"POST","path":"/orders","status":201,"ms":13}
+--- log product
+{"time":"2026-11-18T06:37:02.095Z","service":"product-service","id":"22c4210c-092e-40b3-bfb7-ee26b8baaf96","method":"POST","path":"/products/1/reserve","status":200,"ms":5}
+
+Toko Kue: X-Request-Id pada POST /sales: f086af95-ca84-4852-bb0f-355bd7374931
+--- log sale
+{"time":"2026-11-18T06:37:03.115Z","service":"sale-service","id":"f086af95-ca84-4852-bb0f-355bd7374931","method":"POST","path":"/sales","status":201,"ms":7}
+--- log cake
+{"time":"2026-11-18T06:37:03.111Z","service":"cake-service","id":"f086af95-ca84-4852-bb0f-355bd7374931","method":"POST","path":"/cakes/1/reserve","status":200,"ms":0}

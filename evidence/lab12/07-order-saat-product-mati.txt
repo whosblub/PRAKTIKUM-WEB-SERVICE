@@ -1,0 +1,5 @@
+order saat product mati -> HTTP 503
+order saat product mati -> HTTP 503
+order saat product mati -> HTTP 503
+$ curl localhost:3001/metrics
+{"service":"order-service","startedAt":"2026-11-18T06:37:00.574Z","requests":11,"errors5xx":3,"avgMs":14}

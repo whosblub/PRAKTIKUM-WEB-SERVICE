@@ -1,0 +1,39 @@
+$ npm test   (setelah status 409 diubah sementara menjadi 400 di product-service.js)
+✔ GET /products mengembalikan daftar produk yang bentuknya benar (55.919109ms)
+✔ GET /products/:id mengembalikan satu produk (6.716246ms)
+✔ GET /products/:id untuk id tak dikenal mengembalikan 404 (9.451803ms)
+✔ POST /orders berhasil (201) dan mengurangi stok produk (50.161531ms)
+✖ POST /orders dengan qty melebihi stok mengembalikan 409 (16.431989ms)
+✔ POST /orders dengan input tidak valid mengembalikan 400 (17.429768ms)
+✔ POST /orders untuk produk tak dikenal mengembalikan 404 (11.670143ms)
+✔ GET /orders memuat pesanan yang baru dibuat (6.378803ms)
+✔ GET /product-service/health mengembalikan 200 dan status ok (7.830781ms)
+✔ POST /orders menyertakan header X-Request-Id pada respons (13.205766ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 247.362578
+
+✖ failing tests:
+
+test at tests/api.test.js:48:1
+✖ POST /orders dengan qty melebihi stok mengembalikan 409 (16.431989ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 409
+  
+      at TestContext.<anonymous> (/home/claude/work/09-Pemecahan-Gabe/tests/api.test.js:50:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

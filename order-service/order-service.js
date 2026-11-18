@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+require('./observability')(app, 'order-service');   // lab 12: /health, /metrics, log JSON
 
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -109,7 +110,7 @@ app.post('/orders', async (req, res) => {
   try {
     resp = await fetch(`${PRODUCT_URL}/products/${productId}/reserve`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Request-Id': req.id },
       body: JSON.stringify({ qty }),
       signal: AbortSignal.timeout(2000),
     });

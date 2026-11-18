@@ -1,0 +1,21 @@
+order-service di :3001
+RabbitMQ belum tersedia, coba lagi dalam 3 detik
+channel tidak tersedia, event TIDAK terkirim: 1
+{"time":"2026-11-18T06:37:01.595Z","service":"order-service","id":"f928913e-5709-4d61-8835-bea39ce6c94f","method":"POST","path":"/orders","status":201,"ms":89}
+{"time":"2026-11-18T06:37:01.608Z","service":"order-service","id":"95c50b12-03af-4f85-a8cd-d3266182eb41","method":"POST","path":"/orders","status":409,"ms":7}
+{"time":"2026-11-18T06:37:01.612Z","service":"order-service","id":"6dc75791-afbf-4235-b1ab-5293db840c59","method":"POST","path":"/orders","status":400,"ms":0}
+{"time":"2026-11-18T06:37:01.619Z","service":"order-service","id":"d2b68e18-e6a7-4fb8-a229-9c1a26911243","method":"POST","path":"/orders","status":400,"ms":3}
+{"time":"2026-11-18T06:37:01.634Z","service":"order-service","id":"f8770139-a726-49d8-8dce-efc7155e2b33","method":"POST","path":"/orders","status":404,"ms":12}
+{"time":"2026-11-18T06:37:01.635Z","service":"order-service","id":"8f86d405-7d3b-4ffc-a966-a40a964e6bda","method":"GET","path":"/orders","status":200,"ms":1}
+channel tidak tersedia, event TIDAK terkirim: 2
+{"time":"2026-11-18T06:37:01.670Z","service":"order-service","id":"aad39179-e97b-47d0-b97e-b083a0ef7512","method":"POST","path":"/orders","status":201,"ms":18}
+channel tidak tersedia, event TIDAK terkirim: 3
+{"time":"2026-11-18T06:37:02.094Z","service":"order-service","id":"22c4210c-092e-40b3-bfb7-ee26b8baaf96","method":"POST","path":"/orders","status":201,"ms":13}
+RabbitMQ belum tersedia, coba lagi dalam 3 detik
+RabbitMQ belum tersedia, coba lagi dalam 3 detik
+RabbitMQ belum tersedia, coba lagi dalam 3 detik
+{"time":"2026-11-18T06:37:10.641Z","service":"order-service","id":"57cce0c4-5745-493f-bd95-09deea9af251","method":"POST","path":"/orders","status":503,"ms":3}
+{"time":"2026-11-18T06:37:10.653Z","service":"order-service","id":"fe416aa5-2fc2-4627-b9bc-c862c29ac746","method":"POST","path":"/orders","status":503,"ms":2}
+{"time":"2026-11-18T06:37:10.672Z","service":"order-service","id":"820dc900-d21b-4f93-ba6e-4da279260851","method":"POST","path":"/orders","status":503,"ms":11}
+RabbitMQ belum tersedia, coba lagi dalam 3 detik
+{"time":"2026-11-18T06:37:14.686Z","service":"order-service","id":"a36f19d7-709d-4a6d-a543-8613da2913f3","method":"GET","path":"/metrics","status":200,"ms":3}

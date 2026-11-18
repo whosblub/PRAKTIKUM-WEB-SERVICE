@@ -1,0 +1,13 @@
+06:37:04 gateway=UP(64ms)  product-service=UP(20ms)  order-service=UP(25ms)  cake-service=UP(25ms)  sale-service=UP(25ms)
+06:37:05 gateway=UP(8ms)  product-service=UP(12ms)  order-service=UP(7ms)  cake-service=UP(10ms)  sale-service=UP(12ms)
+06:37:06 gateway=UP(3ms)  product-service=UP(6ms)  order-service=UP(6ms)  cake-service=UP(6ms)  sale-service=UP(6ms)
+06:37:07 gateway=UP(4ms)  product-service=DOWN(5ms)  order-service=UP(8ms)  cake-service=UP(8ms)  sale-service=UP(8ms)
+ALERT: product-service DOWN
+06:37:08 gateway=UP(3ms)  product-service=DOWN(6ms)  order-service=UP(6ms)  cake-service=UP(6ms)  sale-service=UP(6ms)
+06:37:09 gateway=UP(16ms)  product-service=DOWN(17ms)  order-service=UP(15ms)  cake-service=UP(15ms)  sale-service=UP(16ms)
+06:37:10 gateway=UP(4ms)  product-service=DOWN(3ms)  order-service=UP(5ms)  cake-service=UP(5ms)  sale-service=UP(5ms)
+06:37:11 gateway=UP(10ms)  product-service=UP(20ms)  order-service=UP(10ms)  cake-service=UP(10ms)  sale-service=UP(9ms)
+RECOVERED: product-service
+06:37:12 gateway=UP(3ms)  product-service=UP(7ms)  order-service=UP(7ms)  cake-service=UP(7ms)  sale-service=UP(7ms)
+06:37:13 gateway=UP(3ms)  product-service=UP(7ms)  order-service=UP(7ms)  cake-service=UP(6ms)  sale-service=UP(6ms)
+06:37:14 gateway=UP(7ms)  product-service=UP(6ms)  order-service=UP(7ms)  cake-service=UP(7ms)  sale-service=UP(6ms)

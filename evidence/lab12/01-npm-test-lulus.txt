@@ -1,0 +1,39 @@
+$ npm test   (jalan ke-1)
+✔ GET /products mengembalikan daftar produk yang bentuknya benar (79.951054ms)
+✔ GET /products/:id mengembalikan satu produk (11.387982ms)
+✔ GET /products/:id untuk id tak dikenal mengembalikan 404 (9.735874ms)
+✔ POST /orders berhasil (201) dan mengurangi stok produk (123.249064ms)
+✔ POST /orders dengan qty melebihi stok mengembalikan 409 (12.161813ms)
+✔ POST /orders dengan input tidak valid mengembalikan 400 (10.443774ms)
+✔ POST /orders untuk produk tak dikenal mengembalikan 404 (14.947551ms)
+✔ GET /orders memuat pesanan yang baru dibuat (5.825928ms)
+✔ GET /product-service/health mengembalikan 200 dan status ok (7.573746ms)
+✔ POST /orders menyertakan header X-Request-Id pada respons (18.811817ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 359.987656
+
+$ npm test   (jalan ke-2: tetap lulus karena perbandingan relatif)
+✔ GET /products mengembalikan daftar produk yang bentuknya benar (54.164203ms)
+✔ GET /products/:id mengembalikan satu produk (6.000864ms)
+✔ GET /products/:id untuk id tak dikenal mengembalikan 404 (10.16043ms)
+✔ POST /orders berhasil (201) dan mengurangi stok produk (32.538206ms)
+✔ POST /orders dengan qty melebihi stok mengembalikan 409 (11.91309ms)
+✔ POST /orders dengan input tidak valid mengembalikan 400 (16.132745ms)
+✔ POST /orders untuk produk tak dikenal mengembalikan 404 (6.872401ms)
+✔ GET /orders memuat pesanan yang baru dibuat (6.288653ms)
+✔ GET /product-service/health mengembalikan 200 dan status ok (8.417765ms)
+✔ POST /orders menyertakan header X-Request-Id pada respons (13.87578ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 232.053931

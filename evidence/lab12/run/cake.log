@@ -1,0 +1,16 @@
+cake-service di :4000
+{"time":"2026-11-18T06:37:01.839Z","service":"cake-service","id":"1df0571e-12e4-45ce-952c-b36d1ee8124c","method":"GET","path":"/cakes","status":200,"ms":3}
+{"time":"2026-11-18T06:37:01.850Z","service":"cake-service","id":"b41c9ed1-8faf-4f06-8325-183ca7fb2c35","method":"POST","path":"/cakes/9999/reserve","status":404,"ms":1}
+{"time":"2026-11-18T06:37:01.861Z","service":"cake-service","id":"1ced5f49-fbb3-41e6-aa90-e3e8181e0be0","method":"POST","path":"/cakes/1/reserve","status":400,"ms":5}
+{"time":"2026-11-18T06:37:01.862Z","service":"cake-service","id":"69226c6a-f355-489d-a067-99757603ac5e","method":"POST","path":"/cakes/1/reserve","status":409,"ms":0}
+{"time":"2026-11-18T06:37:01.871Z","service":"cake-service","id":"64bf0194-b1ba-4b55-aaa5-4534354773a5","method":"GET","path":"/cakes/1","status":200,"ms":1}
+{"time":"2026-11-18T06:37:01.873Z","service":"cake-service","id":"a93ebe1b-31dd-4dea-ac83-bf1bbc8b16d4","method":"POST","path":"/cakes/1/reserve","status":200,"ms":0}
+{"time":"2026-11-18T06:37:01.877Z","service":"cake-service","id":"29e3ccc6-399c-42c7-84e5-1185f04ea5c6","method":"GET","path":"/cakes/1","status":200,"ms":1}
+{"time":"2026-11-18T06:37:01.896Z","service":"cake-service","id":"6b08829c-b547-42a9-a6a5-649c99bdf179","method":"GET","path":"/cakes/2","status":200,"ms":0}
+{"time":"2026-11-18T06:37:01.975Z","service":"cake-service","id":"53684821-7dc2-4466-800d-428712e19aad","method":"POST","path":"/cakes/2/reserve","status":200,"ms":0}
+{"time":"2026-11-18T06:37:02.006Z","service":"cake-service","id":"724b730a-49f7-4a9b-8c31-68046cde7546","method":"POST","path":"/cakes/9999/reserve","status":404,"ms":0}
+{"time":"2026-11-18T06:37:02.011Z","service":"cake-service","id":"01ea895b-efd0-4063-ac7e-3b64723fbb75","method":"POST","path":"/cakes/2/reserve","status":409,"ms":0}
+{"time":"2026-11-18T06:37:02.028Z","service":"cake-service","id":"d0ba0a97-70a9-4952-a975-fe68229c14a1","method":"GET","path":"/cakes/3","status":200,"ms":0}
+{"time":"2026-11-18T06:37:02.037Z","service":"cake-service","id":"86ba4105-721e-4b1d-b64d-0a118ffcd3f5","method":"POST","path":"/cakes/3/reserve","status":200,"ms":0}
+{"time":"2026-11-18T06:37:02.039Z","service":"cake-service","id":"737692d2-be68-484e-a634-3ca5cb01484f","method":"GET","path":"/cakes/3","status":200,"ms":0}
+{"time":"2026-11-18T06:37:03.111Z","service":"cake-service","id":"f086af95-ca84-4852-bb0f-355bd7374931","method":"POST","path":"/cakes/1/reserve","status":200,"ms":0}

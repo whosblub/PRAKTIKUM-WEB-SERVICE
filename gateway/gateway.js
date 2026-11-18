@@ -31,6 +31,21 @@ async function buildSpec() {
   return merged;
 }
 
+// lab 12: ID permintaan dibuat di gateway, diteruskan ke service lewat header, dan dicatat dalam log JSON
+const crypto = require('crypto');
+app.use((req, res, next) => {
+  req.headers['x-request-id'] = req.headers['x-request-id'] || crypto.randomUUID();
+  res.setHeader('X-Request-Id', req.headers['x-request-id']);
+  if (req.path !== '/health') {
+    const t0 = Date.now();
+    res.on('finish', () => console.log(JSON.stringify({ time: new Date().toISOString(), service: 'gateway',
+      id: req.headers['x-request-id'], method: req.method, path: req.originalUrl,
+      status: res.statusCode, ms: Date.now() - t0 })));
+  }
+  next();
+});
+app.get('/health', (req, res) => res.json({ status: 'ok', service: 'gateway' }));
+
 app.get('/openapi.json', async (req, res) => res.json(await buildSpec()));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(null, { swaggerOptions: { url: '/openapi.json' } }));
 

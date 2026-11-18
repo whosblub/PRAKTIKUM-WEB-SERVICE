@@ -1,0 +1,19 @@
+$ npm test   (setelah status dikembalikan ke 409 dan product-service di-restart)
+✔ GET /products mengembalikan daftar produk yang bentuknya benar (60.454057ms)
+✔ GET /products/:id mengembalikan satu produk (8.017776ms)
+✔ GET /products/:id untuk id tak dikenal mengembalikan 404 (9.084364ms)
+✔ POST /orders berhasil (201) dan mengurangi stok produk (39.89065ms)
+✔ POST /orders dengan qty melebihi stok mengembalikan 409 (13.781834ms)
+✔ POST /orders dengan input tidak valid mengembalikan 400 (14.033078ms)
+✔ POST /orders untuk produk tak dikenal mengembalikan 404 (13.802937ms)
+✔ GET /orders memuat pesanan yang baru dibuat (9.65621ms)
+✔ GET /product-service/health mengembalikan 200 dan status ok (9.048225ms)
+✔ POST /orders menyertakan header X-Request-Id pada respons (23.067675ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 285.916394

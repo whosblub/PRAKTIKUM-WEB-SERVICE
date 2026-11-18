@@ -1,0 +1,8 @@
+sale-service di :4001
+{"time":"2026-11-18T06:37:01.987Z","service":"sale-service","id":"53684821-7dc2-4466-800d-428712e19aad","method":"POST","path":"/sales","status":201,"ms":74}
+{"time":"2026-11-18T06:37:01.998Z","service":"sale-service","id":"576d166e-675f-4cbf-b513-1e4e0b0a4e73","method":"POST","path":"/sales","status":400,"ms":0}
+{"time":"2026-11-18T06:37:02.009Z","service":"sale-service","id":"724b730a-49f7-4a9b-8c31-68046cde7546","method":"POST","path":"/sales","status":404,"ms":5}
+{"time":"2026-11-18T06:37:02.018Z","service":"sale-service","id":"01ea895b-efd0-4063-ac7e-3b64723fbb75","method":"POST","path":"/sales","status":409,"ms":8}
+{"time":"2026-11-18T06:37:02.022Z","service":"sale-service","id":"d3965915-033b-480c-a580-198419bd80fb","method":"GET","path":"/sales","status":200,"ms":1}
+{"time":"2026-11-18T06:37:02.040Z","service":"sale-service","id":"86ba4105-721e-4b1d-b64d-0a118ffcd3f5","method":"POST","path":"/sales","status":201,"ms":9}
+{"time":"2026-11-18T06:37:03.115Z","service":"sale-service","id":"f086af95-ca84-4852-bb0f-355bd7374931","method":"POST","path":"/sales","status":201,"ms":7}

@@ -1,0 +1,18 @@
+gateway di :8080
+{"time":"2026-11-18T06:37:01.456Z","service":"gateway","id":"03582bd0-d9ff-4b56-b873-a483e356d1d1","method":"GET","path":"/product-service/products","status":200,"ms":35}
+{"time":"2026-11-18T06:37:01.467Z","service":"gateway","id":"4800d681-56eb-415f-a25a-28eb41f71da9","method":"GET","path":"/product-service/products/1","status":200,"ms":5}
+{"time":"2026-11-18T06:37:01.471Z","service":"gateway","id":"80f3bfae-a0f9-4920-a299-e19a9ecd3100","method":"GET","path":"/product-service/products/9999","status":404,"ms":2}
+{"time":"2026-11-18T06:37:01.482Z","service":"gateway","id":"6696127d-029a-4a75-aaea-f199fbd3d8cc","method":"GET","path":"/product-service/products/2","status":200,"ms":5}
+{"time":"2026-11-18T06:37:01.589Z","service":"gateway","id":"f928913e-5709-4d61-8835-bea39ce6c94f","method":"POST","path":"/order-service/orders","status":201,"ms":98}
+{"time":"2026-11-18T06:37:01.594Z","service":"gateway","id":"c2e7d67a-b431-4481-9f42-22d2e3c7d705","method":"GET","path":"/product-service/products/2","status":200,"ms":2}
+{"time":"2026-11-18T06:37:01.607Z","service":"gateway","id":"95c50b12-03af-4f85-a8cd-d3266182eb41","method":"POST","path":"/order-service/orders","status":409,"ms":8}
+{"time":"2026-11-18T06:37:01.613Z","service":"gateway","id":"6dc75791-afbf-4235-b1ab-5293db840c59","method":"POST","path":"/order-service/orders","status":400,"ms":2}
+{"time":"2026-11-18T06:37:01.619Z","service":"gateway","id":"d2b68e18-e6a7-4fb8-a229-9c1a26911243","method":"POST","path":"/order-service/orders","status":400,"ms":4}
+{"time":"2026-11-18T06:37:01.632Z","service":"gateway","id":"f8770139-a726-49d8-8dce-efc7155e2b33","method":"POST","path":"/order-service/orders","status":404,"ms":11}
+{"time":"2026-11-18T06:37:01.635Z","service":"gateway","id":"8f86d405-7d3b-4ffc-a966-a40a964e6bda","method":"GET","path":"/order-service/orders","status":200,"ms":2}
+{"time":"2026-11-18T06:37:01.645Z","service":"gateway","id":"4875c380-7955-4c34-814d-96b5c9c8e01d","method":"GET","path":"/product-service/health","status":200,"ms":3}
+{"time":"2026-11-18T06:37:01.657Z","service":"gateway","id":"aad39179-e97b-47d0-b97e-b083a0ef7512","method":"POST","path":"/order-service/orders","status":201,"ms":6}
+{"time":"2026-11-18T06:37:02.093Z","service":"gateway","id":"22c4210c-092e-40b3-bfb7-ee26b8baaf96","method":"POST","path":"/order-service/orders","status":201,"ms":13}
+{"time":"2026-11-18T06:37:10.644Z","service":"gateway","id":"57cce0c4-5745-493f-bd95-09deea9af251","method":"POST","path":"/order-service/orders","status":503,"ms":8}
+{"time":"2026-11-18T06:37:10.655Z","service":"gateway","id":"fe416aa5-2fc2-4627-b9bc-c862c29ac746","method":"POST","path":"/order-service/orders","status":503,"ms":6}
+{"time":"2026-11-18T06:37:10.663Z","service":"gateway","id":"820dc900-d21b-4f93-ba6e-4da279260851","method":"POST","path":"/order-service/orders","status":503,"ms":3}

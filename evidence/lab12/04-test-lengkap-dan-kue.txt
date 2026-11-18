@@ -1,0 +1,37 @@
+$ npm test
+✔ GET /products mengembalikan daftar produk yang bentuknya benar (85.957618ms)
+✔ GET /products/:id mengembalikan satu produk (8.024941ms)
+✔ GET /products/:id untuk id tak dikenal mengembalikan 404 (5.997309ms)
+✔ POST /orders berhasil (201) dan mengurangi stok produk (124.688196ms)
+✔ POST /orders dengan qty melebihi stok mengembalikan 409 (11.665752ms)
+✔ POST /orders dengan input tidak valid mengembalikan 400 (9.039756ms)
+✔ POST /orders untuk produk tak dikenal mengembalikan 404 (11.810159ms)
+✔ GET /orders memuat pesanan yang baru dibuat (10.766715ms)
+✔ GET /product-service/health mengembalikan 200 dan status ok (3.371161ms)
+✔ POST /orders menyertakan header X-Request-Id pada respons (13.951052ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 348.262041
+
+$ npm run test:kue
+✔ cake-service: GET /health mengembalikan 200 dan status ok (53.402165ms)
+✔ cake-service [sukses]: GET /cakes mengembalikan daftar kue berbentuk benar (5.40723ms)
+✔ cake-service [error]: reserve kue tak dikenal 404 dan qty tidak valid 400 (25.747543ms)
+✔ cake-service [efek samping]: reserve mengurangi stok sebesar qty (14.507539ms)
+✔ sale-service: GET /health mengembalikan 200 dan status ok (11.190282ms)
+✔ sale-service [sukses]: POST /sales membuat transaksi (201) dengan total benar (94.985669ms)
+✔ sale-service [error]: input salah 400, kue tak dikenal 404, stok kurang 409 (32.815772ms)
+✔ sale-service [efek samping]: transaksi tercatat di GET /sales dan stok kue berkurang (22.425908ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 319.040212
