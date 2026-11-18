@@ -1,4 +1,4 @@
-![CI](https://github.com/USERNAME/REPO/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/whosblub/TUGAS-WEB-SERVICE/actions/workflows/ci.yml/badge.svg)
 
 # Toko — Microservices (Lab 09 + Dokumentasi API Otomatis)
 
