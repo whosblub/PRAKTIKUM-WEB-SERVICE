@@ -2,9 +2,9 @@ const TARGETS = [
   { name: 'gateway',         url: process.env.GATEWAY_URL || 'http://localhost:8080' },
   { name: 'product-service', url: process.env.PRODUCT_URL || 'http://localhost:3000' },
   { name: 'order-service',   url: process.env.ORDER_URL   || 'http://localhost:3001' },
-  // proyek individu (Toko Kue)
-  { name: 'cake-service',    url: process.env.CAKE_URL    || 'http://localhost:4000' },
-  { name: 'sale-service',    url: process.env.SALE_URL    || 'http://localhost:4001' },
+  // Toko Kue: hapus tanda // di dua baris berikut setelah cake-service dan sale-service dinyalakan
+  // { name: 'cake-service', url: process.env.CAKE_URL || 'http://localhost:4000' },
+  // { name: 'sale-service', url: process.env.SALE_URL || 'http://localhost:4001' },
 ];
 const INTERVAL = Number(process.env.INTERVAL_MS) || 5000;
 const last = {};
