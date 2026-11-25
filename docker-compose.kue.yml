@@ -1,0 +1,34 @@
+# Penerapan ke proyek individu: sistem Toko Kue (cake-service + sale-service).
+# Jalankan:  docker compose -f docker-compose.kue.yml up --build
+# Berdiri sendiri, terpisah dari docker-compose.yml (toko lab 09), jadi keduanya bisa menyala bersamaan.
+name: toko-kue
+
+services:
+  cake-service:
+    build: ./cake-service
+    restart: unless-stopped
+    ports:
+      - "4000:4000"   # dibuka ke host hanya agar tests/toko-kue.test.js bisa menguji langsung
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  sale-service:
+    build: ./sale-service
+    restart: unless-stopped
+    ports:
+      - "4001:4001"
+    environment:
+      CAKE_SERVICE_URL: http://cake-service:4000   # alamat lewat nama service, bukan localhost
+    depends_on:
+      cake-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4001/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s

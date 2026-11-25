@@ -36,7 +36,9 @@ Spesifikasi dihasilkan dari anotasi `@openapi` di kode tiap service (code-first)
 | Variabel | Dipakai oleh | Default |
 |---|---|---|
 | `PORT` | semua service | 3000 / 3001 / 8080 (cake 4000, sale 4001) |
-| `PRODUCT_SERVICE_URL` | order-service | `http://localhost:3000` |
+| `PRODUCT_SERVICE_URL` | order-service, gateway | `http://localhost:3000` |
+| `ORDER_SERVICE_URL` | gateway | `http://localhost:3001` |
+| `CAKE_SERVICE_URL` | sale-service | `http://localhost:4000` |
 | `AMQP_URL` | order-service, notification-service | `amqp://localhost` |
 | `PRODUCT_DOC_URL` | gateway | `http://localhost:3000/openapi.json` |
 | `ORDER_DOC_URL` | gateway | `http://localhost:3001/openapi.json` |
@@ -66,3 +68,37 @@ node monitor.js     # pemantau ketersediaan
 ```
 
 Bukti praktik lab 12 ada di `evidence/lab12/`.
+
+## Menjalankan dengan Docker Compose (Lab 13)
+
+Seluruh sistem toko (gateway, product-service, order-service, RabbitMQ, notification-service) dijalankan dengan satu perintah. Antar service saling menemukan lewat nama service di jaringan Compose (mis. `http://product-service:3000`, `amqp://rabbitmq`), bukan `localhost`.
+
+**Prasyarat:** Docker Desktop (Compose v2) sudah berjalan. Hentikan service manual dan container RabbitMQ lama (`docker rm -f rabbit`) agar port tidak bentrok.
+
+```bash
+docker compose up --build        # build pertama butuh beberapa menit
+docker compose ps                # semua service harus Up / healthy
+npm test                         # test lab 12 terhadap gateway :8080 (tanpa ubah test)
+docker compose logs order-service product-service notification-service
+docker compose down              # matikan stack (data memori ikut hilang)
+```
+
+| Alamat | Keterangan |
+|---|---|
+| http://localhost:8080 | gateway (satu-satunya pintu masuk API) |
+| http://localhost:8080/docs | dokumentasi API gabungan |
+| http://localhost:15672 | dashboard RabbitMQ (guest / guest, hanya untuk praktik lokal) |
+
+Port 3000 dan 3001 tidak dibuka ke host; klien hanya masuk lewat gateway. Setelah mengubah kode sebuah service, bangun ulang dengan `docker compose up -d --build <nama-service>`.
+
+### Proyek individu: Toko Kue
+
+Sistem proyek (cake-service + sale-service) punya file Compose sendiri, dengan `Dockerfile` di tiap folder service:
+
+```bash
+docker compose -f docker-compose.kue.yml up --build
+npm run test:kue                                # test proyek terhadap :4000 dan :4001
+docker compose -f docker-compose.kue.yml down
+```
+
+CI (`.github/workflows/ci.yml`) membangun dan menjalankan kedua stack ini, lalu menjalankan `npm test` dan `npm run test:kue`.

@@ -6,6 +6,10 @@ const app = express();
 
 const swaggerUi = require('swagger-ui-express');
 
+// lab 13: alamat service dibaca dari environment (nilai bawaan localhost untuk jalan manual)
+const PRODUCT_SERVICE_URL = process.env.PRODUCT_SERVICE_URL || 'http://localhost:3000';
+const ORDER_SERVICE_URL   = process.env.ORDER_SERVICE_URL   || 'http://localhost:3001';
+
 const DOC_SOURCES = [
   { prefix: '/product-service', url: process.env.PRODUCT_DOC_URL || 'http://localhost:3000/openapi.json' },
   { prefix: '/order-service',   url: process.env.ORDER_DOC_URL   || 'http://localhost:3001/openapi.json' },
@@ -52,14 +56,14 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(null, { swaggerOptions: { url:
 app.use(createProxyMiddleware({
   pathFilter: '/product-service',
   pathRewrite: { '^/product-service': '' },
-  target: 'http://localhost:3000',
+  target: PRODUCT_SERVICE_URL,
   changeOrigin: true,
 }));
 
 app.use(createProxyMiddleware({
   pathFilter: '/order-service',
   pathRewrite: { '^/order-service': '' },
-  target: 'http://localhost:3001',
+  target: ORDER_SERVICE_URL,
   changeOrigin: true,
 }));
 

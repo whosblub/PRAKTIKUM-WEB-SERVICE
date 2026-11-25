@@ -54,3 +54,22 @@ Diterapkan pada Toko Kue (proyek individu). Kode: `cake-service/` (:4000) dan `s
 - `ci.yml` menyalakan kelima service, menunggu `/health`, lalu menjalankan `npm test` dan `npm run test:kue`.
 - `X-Request-Id` dari sale-service diteruskan ke cake-service sehingga satu penjualan terlacak di kedua log.
 - Catatan: kode sale-service pada tahap ini belum menerbitkan event `sale.created` ke RabbitMQ (lab 10 opsional); desainnya tetap seperti dijelaskan di atas.
+
+---
+
+## Lab 13: Deployment dengan Docker Compose
+
+Toko Kue dikemas dengan `cake-service/Dockerfile` dan `sale-service/Dockerfile` (serta `.dockerignore`), lalu seluruh sistem dijalankan dari `docker-compose.kue.yml`:
+
+```bash
+docker compose -f docker-compose.kue.yml up --build
+npm run test:kue
+```
+
+| Aspek | Isi |
+|---|---|
+| Alamat antar service | sale-service memanggil `http://cake-service:4000` lewat `CAKE_SERVICE_URL` (nama service, bukan `localhost`) |
+| Urutan start | sale-service `depends_on` cake-service dengan `condition: service_healthy` |
+| Health check | `GET /health` pada keduanya (dari lab 12) |
+| Port ke host | 4000 dan 4001, dibuka agar `tests/toko-kue.test.js` bisa menguji langsung (belum ada gateway di Toko Kue) |
+| CI | `ci.yml` membangun dan menjalankan stack toko dan stack Toko Kue, lalu `npm test` dan `npm run test:kue` |

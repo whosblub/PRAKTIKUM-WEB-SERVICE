@@ -11,40 +11,27 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: |
-          npm ci --prefix product-service
-          npm ci --prefix order-service
-          npm ci --prefix gateway
-          npm ci --prefix cake-service
-          npm ci --prefix sale-service
-
-      - name: Start services
-        run: |
-          node product-service/product-service.js > product.log 2>&1 &
-          node order-service/order-service.js > order.log 2>&1 &
-          node gateway/gateway.js > gateway.log 2>&1 &
-          node cake-service/cake-service.js > cake.log 2>&1 &
-          node sale-service/sale-service.js > sale.log 2>&1 &
-
-      - name: Wait until services are ready
-        run: |
-          for url in http://localhost:3000/health http://localhost:3001/health http://localhost:8080/health http://localhost:4000/health http://localhost:4001/health; do
-            ok=0
-            for i in $(seq 1 30); do
-              if curl -sf "$url" > /dev/null; then ok=1; break; fi
-              sleep 1
-            done
-            [ "$ok" = 1 ] || { echo "Tidak siap: $url"; exit 1; }
-          done
+      - name: Build dan nyalakan stack
+        run: docker compose up -d --build --wait
 
       - name: Run tests
         run: npm test
 
+      # Proyek individu (Toko Kue): stack Compose sendiri, test lab 12 dipakai kembali
+      - name: Build dan nyalakan stack Toko Kue
+        run: docker compose -f docker-compose.kue.yml up -d --build --wait
+
       - name: Run project tests (Toko Kue)
         run: npm run test:kue
 
-      - name: Show service logs
+      - name: Tampilkan log
         if: always()
         run: |
-          for f in product order gateway cake sale; do echo "=== $f ==="; cat $f.log; done
+          docker compose logs
+          docker compose -f docker-compose.kue.yml logs
+
+      - name: Matikan stack
+        if: always()
+        run: |
+          docker compose down -v
+          docker compose -f docker-compose.kue.yml down -v
